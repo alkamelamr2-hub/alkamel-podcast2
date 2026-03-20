@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكامل  بودكاست</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <style>
+        /* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #e5e7eb;
+    line-height: 1.7;
+}
+
+/* ===== Container ===== */
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== Header ===== */
+.header {
+    background: linear-gradient(135deg, #1e293b, #020617);
+    border-bottom: 1px solid #1f2937;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    flex-wrap: wrap;
+}
+
+/* ===== Logo ===== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo i {
+    font-size: 28px;
+    color: #38bdf8;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-main {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.logo-sub {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* ===== Navigation Buttons ===== */
+.episode-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    background: #2563eb;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #1d4ed8;
+}
+
+.btn-outline {
+    border: 1px solid #334155;
+    color: #e5e7eb;
+}
+
+.btn-outline:hover {
+    background: #1e293b;
+}
+
+/* ===== Main Page ===== */
+.episode-page {
+    padding: 35px 0;
+}
+
+/* ===== Video Player ===== */
+.video-container {
+    background: #020617;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+#youtubePlayer iframe {
+    width: 100%;
+    height: 450px;
+}
+
+/* رسالة خطأ مشغل الفيديو */
+.video-error {
+    padding: 36px;
+    text-align: center;
+    color: #f8fafc;
+    background: linear-gradient(90deg, rgba(34,34,34,0.6), rgba(14,14,14,0.6));
+}
+.video-error p { margin: 10px 0; }
+.video-error a { color: #38bdf8; font-weight: 700; text-decoration: underline; }
+
+/* ===== Episode Info ===== */
+.episode-info {
+    background: #020617;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #1f2937;
+}
+
+.episode-info h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #38bdf8;
+}
+
+.episode-info .meta {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: #94a3b8;
+    flex-wrap: wrap;
+}
+
+/* ===== Description ===== */
+.episode-description {
+    background: #020617;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid #1f2937;
+}
+
+.episode-description h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #22d3ee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#episodeDescription {
+    color: #e5e7eb;
+    font-size: 15px;
+}
+
+/* ===== Similar Episodes ===== */
+.similar-episodes h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #22d3ee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.similar-grid .card {
+    background: #020617;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #1f2937;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.similar-grid .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.similar-grid img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.similar-grid .card-content {
+    padding: 12px;
+}
+
+.similar-grid h4 {
+    font-size: 14px;
+    color: #e5e7eb;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    #youtubePlayer iframe {
+        height: 250px;
+    }
+
+    .episode-nav {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-podcast"></i>
+                    <div class="logo-text">
+                        <span class="logo-main">بودكاست</span>
+                        <span class="logo-sub">عمرو الكامل</span>
+                    </div>
+                </a>
+                
+                <div class="episode-nav">
+                    <a href="category.html" class="btn btn-secondary" id="backToCategory">
+                        <i class="fas fa-arrow-right"></i> العودة للفئة
+                    </a>
+                    <a href="index.html" class="btn btn-outline">
+                        <i class="fas fa-home"></i> الرئيسية
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="episode-page">
+        <div class="container">
+            <!-- مشغل الفيديو -->
+            <div class="video-container">
+                <div id="youtubePlayer"></div>
+            </div>
+            
+            <!-- معلومات الحلقة -->
+            <div class="episode-info" id="episodeInfo">
+                <!-- سيتم تعبئة هذا القسم تلقائياً -->
+            </div>
+            
+            <!-- وصف الحلقة -->
+            <div class="episode-description">
+                <h3><i class="fas fa-align-right"></i> وصف الحلقة</h3>
+                <div id="episodeDescription"></div>
+            </div>
+            
+            <!-- الحلقات المشابهة -->
+            <div class="similar-episodes">
+                <h3><i class="fas fa-random"></i> حلقات مشابهة</h3>
+                <div class="similar-grid" id="similarEpisodes">
+                
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+    <script src="player.js"></script>
+</body>
+</html>

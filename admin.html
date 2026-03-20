@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المحتوى | بودكاست الناجحين</title>
+   
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================== Reset & Base ================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #e5e7eb;
+    min-height: 100vh;
+}
+
+/* ================== Admin Layout ================== */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ================== Sidebar ================== */
+.admin-sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, #020617, #020617);
+    border-left: 1px solid #1f2937;
+    padding: 20px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.sidebar-header i {
+    font-size: 28px;
+    color: #38bdf8;
+}
+
+.sidebar-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    color: #e5e7eb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu-item i {
+    width: 22px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+.menu-item:hover {
+    background: #1e293b;
+}
+
+.menu-item:hover i {
+    color: #38bdf8;
+}
+
+/* ================== Main Content ================== */
+.admin-main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* ================== Video Preview ================== */
+.preview-box {
+    background: #020617;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px dashed #1f2937;
+    text-align: center;
+}
+
+.preview-placeholder i {
+    font-size: 50px;
+    color: #ef4444;
+    margin-bottom: 10px;
+}
+
+.preview-placeholder p {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* ================== Buttons ================== */
+.btn {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: #334155;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #475569;
+}
+
+.btn-success {
+    background: #16a34a;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: #15803d;
+}
+
+/* ================== Forms ================== */
+.form-group {
+    background: #020617;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #1f2937;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #38bdf8;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input {
+    width: 18px;
+    height: 18px;
+    accent-color: #38bdf8;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #e5e7eb;
+}
+
+/* ================== Form Actions ================== */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* ================== Episodes List ================== */
+.episodes-list-section {
+    margin-top: 40px;
+}
+
+.episodes-list-section h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #22d3ee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-episodes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.admin-episodes-list .episode-card {
+    background: #020617;
+    border-radius: 16px;
+    padding: 15px;
+    border: 1px solid #1f2937;
+    transition: 0.3s;
+}
+
+.admin-episodes-list .episode-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.episode-card h4 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #e5e7eb;
+}
+
+.episode-card .meta {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 900px) {
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .menu-item {
+        font-size: 13px;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="admin-container">
+        <!-- الشريط الجانبي -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-podcast"></i>
+                <h3>لوحة التحكم</h3>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i> الرئيسية
+                
+                <a href="#" class="menu-item">
+                    <i class="fas fa-list"></i> إدارة الحلقات
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-chart-bar"></i> الإحصائيات
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-cog"></i> الإعدادات
+                </a>
+            </nav>
+        </aside>
+
+        
+                    <div class="preview-box" id="youtubePreview">
+                        <!-- ستظهر معاينة الفيديو هنا -->
+                        <div class="preview-placeholder">
+                            <i class="fab fa-youtube"></i>
+                            <p>سيظهر معاينة الفيديو هنا بعد إضافة الرابط</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary next-step" data-next="step2">
+                        <i class="fas fa-arrow-left"></i> التالي
+                    </button>
+                </div>
+
+           
+                    
+                    <div class="form-group">
+                        <label for="featuredEpisode">
+                            <i class="fas fa-star"></i> تمييز الحلقة
+                        </label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="featuredEpisode">
+                            <label for="featuredEpisode">عرض هذه الحلقة في القسم المميز</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn btn-secondary prev-step" data-prev="step2">
+                            <i class="fas fa-arrow-right"></i> السابق
+                        </button>
+                        <button class="btn btn-success" id="publishEpisode">
+                            <i class="fas fa-upload"></i> نشر الحلقة
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قائمة الحلقات المضافة -->
+            <div class="episodes-list-section">
+                <h3><i class="fas fa-list-ol"></i> آخر الحلقات المضافة</h3>
+                <div class="admin-episodes-list" id="adminEpisodesList">
+                    <!-- ستظهر الحلقات هنا -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+    <script src="player.js"></script>
+</body>
+</html>
